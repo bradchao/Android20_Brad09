@@ -7,6 +7,7 @@ import android.graphics.Matrix;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -18,11 +19,15 @@ import java.io.InputStreamReader;
 public class MainActivity extends AppCompatActivity {
     private SharedPreferences sp;
     private SharedPreferences.Editor editor;
+    private Button test5, test6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        test5 = findViewById(R.id.test5);
+        test6 = findViewById(R.id.test6);
 
         sp = getSharedPreferences("config", MODE_PRIVATE);
         editor = sp.edit();
@@ -75,6 +80,19 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, e.toString(),
                     Toast.LENGTH_SHORT).show();
         }
+
+
+    }
+
+    public void test56(View view) {
+        Button btn = (Button)view;
+        Log.v("brad", btn.getText().toString());
+        if (view == test5){
+            Log.v("brad", "test5");
+        }else if (view == test6){
+            Log.v("brad", "test6");
+        }
+
 
 
     }
